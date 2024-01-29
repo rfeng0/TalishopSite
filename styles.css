@@ -1,0 +1,269 @@
+body {
+    font-family: "Oswald", sans-serif;
+    -webkit-text-fill-color: black;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+    position: relative;
+}
+
+.header-bar {
+    width: 100%;
+    height: 45px;
+    background-color: #A6673C;
+    z-index: 50;
+}
+
+header {
+    position: relative;
+    background-color: #fff;
+    color: #fff;
+    padding: 1em;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.logo-text {
+    text-align: center;
+    flex-grow: 1;
+    text-size-adjust: auto;
+}
+
+.header-logo {
+    height: 50px;
+    width: 50px;
+    margin-left: 10px;
+}
+
+button {
+    background-color: transparent;
+    border: none;
+}
+
+h1 {
+    margin: 0;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+h1 img {
+    height: 50px;
+    width: 50px;
+    margin-left: 10px;
+}
+
+button img {
+    height: 25px;
+    width: 35px;
+    margin-left: 10px;
+}
+
+.sidebar {
+    position: fixed;
+    top: 0;
+    left: -250px;
+    height: 100%;
+    width: 250px;
+    background-color: #333;
+    color: #fff;
+    transition: 0.3s;
+    overflow-y: auto;
+    z-index: 20;
+}
+
+.close-btn {
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    cursor: pointer;
+    font-size: 30px;
+    z-index: 20;
+}
+
+.sidebar a {
+    padding: 16px;
+    text-decoration: none;
+    color: #fff;
+    display: block;
+    transition: 0.3s;
+    z-index: 20;
+}
+
+.sidebar a:hover {
+    background-color: #555;
+    z-index: 20;
+}
+
+.slideshow-container {
+    max-width: 1000px;
+    position: relative;
+    margin: auto;
+}
+
+.mySlides {
+    display: none;
+}
+
+.slideshow-container img {
+    width: 100%;
+    height: auto;
+}
+
+.prev, .next {
+    cursor: pointer;
+    position: absolute;
+    top: 50%;
+    width: auto;
+    margin-top: -22px;
+    padding: 16px;
+    color: white;
+    font-weight: bold;
+    font-size: 18px;
+    transition: 0.6s ease;
+    border-radius: 0 3px 3px 0;
+    user-select: none;
+}
+
+.next {
+    right: 0;
+    border-radius: 3px 0 0 3px;
+}
+
+.prev:hover, .next:hover {
+    background-color: rgba(0, 0, 0, 0.8);
+}
+
+.dot {
+    height: 15px;
+    width: 15px;
+    margin: 0 2px;
+    background-color: #bbb;
+    border-radius: 50%;
+    display: inline-block;
+    transition: background-color 0.6s ease;
+    cursor: pointer;
+}
+
+.active, .dot:hover {
+    background-color: #717171;
+}
+
+.dot-container {
+    text-align: center;
+    position: absolute;
+    bottom: 10px;
+    width: 100%;
+}
+
+.popular-products {
+    background-color: white;
+    padding: 20px;
+    text-align: center;
+    margin-top: -20px;
+}
+
+.product {
+    text-align: center;
+    margin: 20px;
+    display: inline-block;
+}
+
+.product img {
+    width: 150px;
+    height: 150px;
+    object-fit: cover;
+    border-radius: 10px;
+}
+
+.product p {
+    color: #fff;
+    margin: 10px 0;
+}
+
+footer {
+    background-color: #333;
+    color: #fff;
+    padding: 10px;
+    text-align: center;
+}
+
+.footer-info {
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.category-buttons {
+    background-image: linear-gradient(to left, violet, indigo, blue, green, yellow, orange, red);
+    padding: 1em;
+    text-align: center;
+    font-family: "Oswald", sans-serif;
+    -webkit-text-fill-color: black;
+}
+
+.category-buttons button {
+    font-family: "Oswald", sans-serif;
+    font-size: large;
+}
+
+.catalogue-container {
+    padding-top: 15px;
+    text-align: center;
+}
+
+.product {
+    margin: 20px;
+    padding: 5px;
+    display: inline-block;
+    vertical-align: top;
+}
+
+.catalogue-area {
+    padding: 35px;
+    padding-top: 20px;
+    background-color: red;
+}
+
+.catalogue-area button {
+    align-self: center;
+}
+
+.product-details-container {
+    position: fixed;
+    top: 0;
+    right: -100%;
+    width: 50%;
+    height: 100%;
+    background-color: white;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    transition: right 0.3s ease-in-out;
+    overflow-y: auto;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+.product-details-container img {
+    max-width: 100%;
+    height: auto;
+    margin-bottom: 15px;
+}
+
+body.overlay {
+    overflow: hidden;
+}
+
+.product-details-container::before {
+    content: "";
+    background: rgba(0, 0, 0, 0.5);
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 999;
+    pointer-events: none;
+    transition: opacity 0.3s ease;
+    opacity: 0;
+}
