@@ -5,6 +5,7 @@ body {
     padding: 0;
     background-color: #f4f4f4;
     position: relative;
+    overflow: overlay;
 }
 
 .header-bar {
@@ -12,7 +13,30 @@ body {
     height: 45px;
     background-color: #C4A98E;
     z-index: 50;
-    max-height: 35px;
+    max-height: 45px;
+}
+
+.bigText {
+    font-size: xx-large;
+    font-weight: bold;
+    margin: 20px;
+}
+
+.aboutText {
+    margin: 50px;
+}
+
+.largeText {
+    font-size: x-large;
+    font-weight: normal;
+}
+
+.gray-line {
+    border-top: 1px solid black;
+}
+
+.sidebarBreak {
+    padding-top: 60%;
 }
 
 header {
@@ -21,16 +45,19 @@ header {
     color: #fff;
     padding: 1em;
     display: flex;
+    max-height:50px;
     align-items: center;
     justify-content: space-between;
+    vertical-align: center;
 }
 
 .logo-text {
     text-align: center;
     flex-grow: 1;
     text-size-adjust: auto;
-    max-height:30px;
-    min-height:15px;
+    padding-top:1%;
+    vertical-align: center;
+    align-items: center;
 }
 
 .header-logo {
@@ -66,7 +93,7 @@ button img {
 
 .sidebar {
     position: fixed;
-    top: 105px;
+    top: 120px;
     left: -100%;
     height: calc(100% - 45px);
     width: 100%;
@@ -99,12 +126,63 @@ button img {
     z-index: 20;
 }
 
+.sidebarFollow {
+    padding: 20px;
+    display: flex;
+    align-items: center;
+    padding-top:10px;
+}
+
+.sidebarFollow > div {
+    margin-right: 10px;
+}
+
+.sideBarFollowHeaderText {
+    font-size: x-large;
+    padding:20px;
+    padding-bottom: 0px;
+}
+
+.sidebarFollow a {
+    font-size: large;
+    white-space: nowrap;
+    border-bottom: none;
+}
+
+.sidebarFollow img {
+    height: 50px;
+}
+
 .slideshow-container {
     max-width: 1000px;
-    max-height: 500px;
-    overflow: hidden;
+    height: 500px;
     position: relative;
     margin: auto;
+    background-color: black;
+}
+
+.slideshow-container img {
+    width: 100%;
+    height: 500px;
+    object-fit: fill;
+}
+
+.filter-options {
+    position: relative;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 160px;
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+    padding: 12px 16px;
+    z-index: 1;
+}
+
+.show {
+    display: block;
 }
 
 .background-image {
@@ -117,17 +195,6 @@ button img {
     background-position: center;
     filter: blur(8px);
 }
-
-.mySlides {
-    display: none;
-}
-
-.slideshow-container img {
-    width: 100%;
-    height: auto;
-    max-height: 500px;
-}
-
 .prev, .next {
     cursor: pointer;
     position: absolute;
@@ -178,7 +245,6 @@ button img {
     background-color: white;
     padding: 20px;
     text-align: center;
-    margin-top: -20px;
 }
 
 .product {
@@ -209,6 +275,16 @@ footer {
 .footer-info {
     max-width: 600px;
     margin: 0 auto;
+}
+
+.social-media-buttons {
+    margin-top: 10px;
+}
+
+.social-media-buttons a {
+    display: inline-block;
+    margin: 0 10px;
+    padding-bottom: 5px;
 }
 
 .category-buttons {
@@ -282,4 +358,8 @@ body.overlay {
     pointer-events: none;
     transition: opacity 0.3s ease;
     opacity: 0;
+}
+
+body.sidebar-open {
+    overflow: hidden;
 }
