@@ -37,6 +37,7 @@ body {
 
 .sidebarBreak {
     padding-top: 60%;
+    max-height: 30%;
 }
 
 header {
@@ -92,11 +93,11 @@ button img {
 }
 
 .sidebar {
-    position: fixed;
-    top: 120px;
-    left: -100%;
-    height: calc(100% - 45px);
-    width: 100%;
+    position: absolute; /* Change from fixed to absolute */
+    top: 115px; /* Adjust to match the height of your header bar */
+    left: -100%; /* Initially off-screen */
+    height: calc(100% - 45px); /* Adjust to leave space for the header and header bar */
+    width: 100%; /* Occupy full horizontal width */
     background-color: #fff;
     color: #fff;
     transition: 0.3s;
@@ -248,8 +249,8 @@ button img {
 }
 
 .product {
-    text-align: center;
     margin: 20px;
+    padding: 5px;
     display: inline-block;
 }
 
@@ -280,6 +281,8 @@ footer {
 .social-media-buttons {
     margin-top: 10px;
 }
+
+
 
 .social-media-buttons a {
     display: inline-block;

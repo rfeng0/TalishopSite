@@ -1,4 +1,5 @@
 const products = [
+    ["Chips","https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTzJSJhZYmfRqFeXti5OnBs7W-qU4SWqGeUGYT2gL0KCA&s","Mr Li's","Volleyball Flavour","3.99","0","0","This product is by Kennothy Li"],
 ["Chips","https://images.kglobalservices.com/www.pringles.com.uk/en_gb/product/product_6598149/prod_img-6598525_05053990138722_a1n1.png","Pringles","Classic","2.00","0","0","This product was made in Japan, by the Pocky Company."],
 ["Chips","https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQm98HXKJrzSuMN8EYUM0I_4aV-bW7Hq8gQpZwy3I_uTg&s","Pringles","Sour Cream & Onion","2.00","0","0"],
 ["Chips","https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTN8P7uT_gO6tzq9fg6hB5iICxRkozG2OI9GlnsRg7PsQ&s","Pringles","BBQ","2.00","0","0"],
