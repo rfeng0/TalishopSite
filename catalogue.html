@@ -132,7 +132,6 @@
 
     const catalogueProducts = products;
 
-    // catalogue rendererer
     function renderCatalogue(products) {
         var catalogueContainer = document.querySelector(".catalogue-container");
         catalogueContainer.innerHTML = '';
@@ -140,17 +139,14 @@
         var currentCategory = null;
 
         products.forEach(function(product, index) {
-            // Check if category has changed
             if (currentCategory !== product[0]) {
-                // Create category title element
                 var categoryTitle = document.createElement("h2");
-                categoryTitle.textContent = product[0]; // Use the category name as the title
+                categoryTitle.textContent = product[0];
                 catalogueContainer.appendChild(categoryTitle);
 
-                currentCategory = product[0]; // Update current category
+                currentCategory = product[0];
             }
 
-            // Create product element
             var productElement = document.createElement("div");
             productElement.className = "product";
 
@@ -192,12 +188,10 @@
 
             catalogueContainer.appendChild(productElement);
 
-            // Click event to show product details
             productElement.addEventListener("click", function () {
                 showProductDetails(product);
             });
 
-            // Add divider if new category begins (except after the last product)
             if (index < products.length - 1 && products[index + 1][0] !== currentCategory) {
                 var categoryDivider = document.createElement("div");
                 categoryDivider.className = "category-divider";
@@ -205,8 +199,6 @@
             }
         });
     }
-
-
 
     function filterProducts(category) {
         if (category === 'All') {
@@ -219,7 +211,6 @@
         }
     }
 
-    // Add a new function to handle dropdown change
     function filterProductsDropdown() {
         var categoryDropdown = document.getElementById("categoryDropdown");
         var selectedCategory = categoryDropdown.value;

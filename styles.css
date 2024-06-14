@@ -297,14 +297,6 @@ footer {
     padding-bottom: 5px;
 }
 
-.category-buttons {
-    background-image: linear-gradient(to left, violet, indigo, blue, green, yellow, orange, red);
-    padding: 1em;
-    text-align: center;
-    font-family: "Oswald", sans-serif;
-    -webkit-text-fill-color: black;
-}
-
 .category-buttons button {
     font-family: "Oswald", sans-serif;
     font-size: large;
@@ -320,12 +312,6 @@ footer {
     padding: 5px;
     display: inline-block;
     vertical-align: top;
-}
-
-.catalogue-area {
-    padding: 35px;
-    padding-top: 20px;
-    background-color: red;
 }
 
 .catalogue-area button {
