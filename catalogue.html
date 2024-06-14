@@ -47,20 +47,29 @@
     </div>
 </div>
 
-<div class="search-bar">
-    <input type="text" id="searchInput" placeholder="Search products..." oninput="searchProducts()">
-</div>
-
-<div class="filter-options">
-    <button onclick="toggleFilterDropdown()">Filter</button>
-    <div id="filterDropdown" class="dropdown-content">
-        <label><input type="checkbox" id="peanutFreeCheckbox">Peanut Free</label>
-        <label><input type="checkbox" id="almondFreeCheckbox">Almond Free</label>
-        <button onclick="applyFilters()">Apply</button>
+<div class="controls-section">
+    <div class="category-dropdown">
+        <select id="categoryDropdown" onchange="filterProductsDropdown()">
+            <option value="All">All</option>
+            <option value="Chips">Chips</option>
+            <option value="Cookies">Cookies</option>
+            <option value="Bars">Bars</option>
+            <option value="Other">Other</option>
+            <option value="Drinks">Drinks</option>
+            <option value="Frozen">Frozen</option>
+            <option value="Supplies">Supplies</option>
+        </select>
     </div>
+    <button id="toggleControlsButton" onclick="toggleControls()"><b>Filter and Sort</b></button>
 </div>
 
-<div class="sort-options">
+<div id="controlsContainer" class="controls-container">
+    <div class="search-bar">
+        <input type="text" id="searchInput" placeholder="Search products..." oninput="searchProducts()">
+    </div>
+
+    <label><input type="checkbox" id="peanutFreeCheckbox" onclick="applyFilters()">Peanut Free |</label>
+    <label><input type="checkbox" id="almondFreeCheckbox" onclick="applyFilters()">Almond Free |</label>
     <label for="sortDropdown">Sort By:</label>
     <select id="sortDropdown" onchange="sortCatalogue()">
         <option value="default">Default</option>
@@ -69,16 +78,8 @@
     </select>
 </div>
 
-<div class="category-buttons">
-    <button onclick="filterProducts('All')">All</button>
-    <button onclick="filterProducts('Chips')">Chips</button>
-    <button onclick="filterProducts('Cookies')">Cookies</button>
-    <button onclick="filterProducts('Bars')">Bars</button>
-    <button onclick="filterProducts('Other')">Other</button>
-    <button onclick="filterProducts('Drinks')">Drinks</button>
-    <button onclick="filterProducts('Frozen')">Frozen</button>
-    <button onclick="filterProducts('Supplies')">Supplies</button>
-</div>
+<div class="category-divider"></div>
+
 
 <div class="catalogue-container"></div>
 
@@ -136,11 +137,24 @@
         var catalogueContainer = document.querySelector(".catalogue-container");
         catalogueContainer.innerHTML = '';
 
-        products.forEach(function (product) {
+        var currentCategory = null;
+
+        products.forEach(function(product, index) {
+            // Check if category has changed
+            if (currentCategory !== product[0]) {
+                // Create category title element
+                var categoryTitle = document.createElement("h2");
+                categoryTitle.textContent = product[0]; // Use the category name as the title
+                catalogueContainer.appendChild(categoryTitle);
+
+                currentCategory = product[0]; // Update current category
+            }
+
+            // Create product element
             var productElement = document.createElement("div");
             productElement.className = "product";
 
-            if (product[1] != " " && product[1] != "") {
+            if (product[1] !== " " && product[1] !== "") {
                 var productImage = document.createElement("img");
                 productImage.src = product[1];
                 productImage.alt = product[2];
@@ -156,35 +170,43 @@
             var productWarnings = document.createElement("div");
             productWarnings.className = "warnings";
 
-            if (product[5] == "1") {
-                productWarnings.append(document.createElement("p").innerHTML = " ")
-                var warningText = document.createElement("img")
-                warningText.src = 'https://www.svgrepo.com//show/56033/peanuts.svg';
-                warningText.style.height = '20px'
+            if (product[5] === "1") {
+                var warningText = document.createElement("img");
+                warningText.src = 'https://www.svgrepo.com/show/56033/peanuts.svg';
+                warningText.style.height = '20px';
                 warningText.style.width = warningText.style.height;
-                productWarnings.appendChild(warningText)
+                productWarnings.appendChild(warningText);
             }
 
-            if (product[6] == "1") {
-                productWarnings.append(document.createElement("p").innerHTML = " ")
-                var warningText = document.createElement("img")
+            if (product[6] === "1") {
+                var warningText = document.createElement("img");
                 warningText.src = 'https://us.123rf.com/450wm/deepfuze/deepfuze1807/deepfuze180700674/114799291-shelled-almond-isolated-on-a-white-background.jpg?ver=6';
-                warningText.style.height = '20px'
+                warningText.style.height = '20px';
                 warningText.style.width = warningText.style.height;
-                productWarnings.appendChild(warningText)
+                productWarnings.appendChild(warningText);
             }
 
             productElement.appendChild(productImage);
             productElement.appendChild(productName);
             productElement.appendChild(productWarnings);
-            // Do not touch this. It barely works as is
+
+            catalogueContainer.appendChild(productElement);
+
+            // Click event to show product details
             productElement.addEventListener("click", function () {
                 showProductDetails(product);
             });
 
-            catalogueContainer.appendChild(productElement);
+            // Add divider if new category begins (except after the last product)
+            if (index < products.length - 1 && products[index + 1][0] !== currentCategory) {
+                var categoryDivider = document.createElement("div");
+                categoryDivider.className = "category-divider";
+                catalogueContainer.appendChild(categoryDivider);
+            }
         });
     }
+
+
 
     function filterProducts(category) {
         if (category === 'All') {
@@ -193,6 +215,22 @@
             var filteredProducts = catalogueProducts.filter(function (product) {
                 return product[0] === category;
             });
+            renderCatalogue(filteredProducts);
+        }
+    }
+
+    // Add a new function to handle dropdown change
+    function filterProductsDropdown() {
+        var categoryDropdown = document.getElementById("categoryDropdown");
+        var selectedCategory = categoryDropdown.value;
+
+        if (selectedCategory === 'All') {
+            renderCatalogue(catalogueProducts);
+        } else {
+            var filteredProducts = catalogueProducts.filter(function (product) {
+                return product[0] === selectedCategory;
+            });
+            sortCatalogue()
             renderCatalogue(filteredProducts);
         }
     }
@@ -219,11 +257,6 @@
             return product[2].toLowerCase().includes(searchInput) || product[3].toLowerCase().includes(searchInput);
         });
         renderCatalogue(filteredProducts);
-    }
-
-    function toggleFilterDropdown() {
-        var dropdown = document.getElementById("filterDropdown");
-        dropdown.classList.toggle("show");
     }
 
     function applyFilters() {
@@ -263,6 +296,16 @@
             renderCatalogue(catalogueProducts);
         }
     }
+
+    function toggleControls() {
+        var controlsContainer = document.getElementById('controlsContainer');
+        if (controlsContainer.style.display === 'none') {
+            controlsContainer.style.display = 'block';
+        } else {
+            controlsContainer.style.display = 'none';
+        }
+    }
+
 
     renderCatalogue(catalogueProducts);
 </script>

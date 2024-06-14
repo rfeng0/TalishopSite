@@ -1,5 +1,5 @@
 const products = [
-    ["Chips","https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTzJSJhZYmfRqFeXti5OnBs7W-qU4SWqGeUGYT2gL0KCA&s","Mr Li's","Volleyball Flavour","3.99","0","0","This product is by Kennothy Li"],
+    ["Chips","https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTzJSJhZYmfRqFeXti5OnBs7W-qU4SWqGeUGYT2gL0KCA&s","Mr Li's","Volleyball Flavour","3.99","1","1","This product is by Kennothy Li"],
 ["Chips","https://images.kglobalservices.com/www.pringles.com.uk/en_gb/product/product_6598149/prod_img-6598525_05053990138722_a1n1.png","Pringles","Classic","2.00","0","0","This product was made in Japan, by the Pocky Company."],
 ["Chips","https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQm98HXKJrzSuMN8EYUM0I_4aV-bW7Hq8gQpZwy3I_uTg&s","Pringles","Sour Cream & Onion","2.00","0","0"],
 ["Chips","https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTN8P7uT_gO6tzq9fg6hB5iICxRkozG2OI9GlnsRg7PsQ&s","Pringles","BBQ","2.00","0","0"],
@@ -88,6 +88,5 @@ const products = [
 ["Supplies","https://www.schoolspecialty.ca/images/086381_ecommfullsize.jpg","Binder","","7.00","",""],
 ["Supplies","https://www.westerndigital.com/content/dam/store/en-us/assets/products/usb-flash-drives/cruzer-blade-usb-2-0/gallery/cruzer-blade-usb-2-0-angle.png","USB","","7.00","",""],
 ["Supplies","https://i5.walmartimages.com/asr/a002641d-5d3d-434b-931b-7313d9db832c_1.0a1d5954e1e524e0fb36548644fc10b1.jpeg?odnHeight=612&odnWidth=612&odnBg=FFFFFF","Minnie Notepad","150 Pages","7.00","",""],
-["Frozen","https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTcGn86XgMau8cVEllXxztLt1G7bQGTlCFfZ3xKt6AyGnlkqai_","Ice Cube","Water","7.00","1","1"],
 // products = ["category","image","name","product flavour","price","nut warning? (1 = yes 0 = no)","almond warning? (1 = yes 0 = no)",],
 ];
