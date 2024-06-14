@@ -9,7 +9,7 @@
 <body>
 
 <script>
-    var disablePC = true;
+    var disablePC = false;
     function isPhone() {
         return /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
     }
@@ -69,8 +69,8 @@
     </div>
 
     <label><input type="checkbox" id="peanutFreeCheckbox" onclick="applyFilters()">Peanut Free |</label>
-    <label><input type="checkbox" id="almondFreeCheckbox" onclick="applyFilters()">Almond Free |</label>
-    <label for="sortDropdown">Sort By:</label>
+    <label><input type="checkbox" id="almondFreeCheckbox" onclick="applyFilters()">Almond Free</label>
+    <br><label for="sortDropdown">Sort By:</label>
     <select id="sortDropdown" onchange="sortCatalogue()">
         <option value="default">Default</option>
         <option value="price">Price</option>
@@ -139,14 +139,6 @@
         var currentCategory = null;
 
         products.forEach(function(product, index) {
-            if (currentCategory !== product[0]) {
-                var categoryTitle = document.createElement("h2");
-                categoryTitle.textContent = product[0];
-                catalogueContainer.appendChild(categoryTitle);
-
-                currentCategory = product[0];
-            }
-
             var productElement = document.createElement("div");
             productElement.className = "product";
 
@@ -191,12 +183,6 @@
             productElement.addEventListener("click", function () {
                 showProductDetails(product);
             });
-
-            if (index < products.length - 1 && products[index + 1][0] !== currentCategory) {
-                var categoryDivider = document.createElement("div");
-                categoryDivider.className = "category-divider";
-                catalogueContainer.appendChild(categoryDivider);
-            }
         });
     }
 
