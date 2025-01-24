@@ -9,7 +9,7 @@
 <body>
 
 <script>
-    var disablePC = true;
+    var disablePC = false; /* for testing purposes*/
     function isPhone() {
         return /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
     }
@@ -25,27 +25,29 @@
         <img alt="sidebaropen" height="55" width="55" src="images\sidebaropen.png">
     </button>
     <div class="logo-text">
-        <div class="logo-text"><img class="topbartext" width=70% src="images\talishop.logo.png" width="50%"></div>
+        <a href="index.html"> <!-- added a link to main page -->
+            <img class="topbartext" width=70% src="images\talishop.logo.png" width="50%">
+        </a>
     </div>
     <img class="header-logo" id="toggleIcon" src="images\bearlogo.jpg">
-</header>
 
-<div class="gray-line"></div>
-
-<div class="sidebar" id="sidebar">
-    <div class="largeText">
-        <a href="index.html">Home</a>
-        <a href="catalogue.html">Catalogue</a>
-        <a href="about.html">About Us</a>
-        <div class="sidebarBreak">
-            <div class="gray-line"></div>
+    <div class="sidebar" id="sidebar"> <!-- moved into header -->
+        <div class="largeText">
+            <a href="index.html">Home</a>
+            <a href="catalogue.html">Catalogue</a>
+            <a href="about.html">About Us</a>
+            <div class="sidebarBreak">
+                <div class="gray-line"></div>
+            </div>
+        </div>
+        <div class="sideBarFollowHeaderText">FOLLOW US</div>
+        <div class="sidebarFollow">
+            <img src="https://cdn-icons-png.flaticon.com/512/87/87390.png" height="50px"><a href="https://www.instagram.com/vt.talishop?igsh=czIzMmM3czljbzdp&utm_source=qr">vt.talishop</a>
         </div>
     </div>
-    <div class="sideBarFollowHeaderText">FOLLOW US</div>
-    <div class="sidebarFollow">
-        <img src="https://cdn-icons-png.flaticon.com/512/87/87390.png" height="50px"><a href="https://www.instagram.com/vt.talishop?igsh=czIzMmM3czljbzdp&utm_source=qr">vt.talishop</a>
-    </div>
-</div>
+</header>
+
+<!-- removed a gray line -->
 
 <div class="controls-section">
     <div class="category-dropdown">
@@ -95,9 +97,9 @@
 <footer>
     <div class="footer-info">
         <div class="social-media-buttons">
-            <a href="#"><img src="https://cdn-icons-png.flaticon.com/512/60/60543.png" alt="Email" height="30px"></a>
+            <!-- removed <a href="#"><img src="https://cdn-icons-png.flaticon.com/512/60/60543.png" alt="Email" height="30px"></a>-->
             <a href="https://www.instagram.com/vt.talishop?igsh=czIzMmM3czljbzdp&utm_source=qr"><img src="https://cdn-icons-png.flaticon.com/512/87/87390.png" alt="Instagram" height="30px"></a>
-            <a href="#"><img src="https://cdn-icons-png.flaticon.com/256/20/20673.png" alt="Facebook" height="30px"></a>
+            <!-- removed <a href="#"><img src="https://cdn-icons-png.flaticon.com/256/20/20673.png" alt="Facebook" height="30px"></a>-->
         </div>
     </div>
 </footer>
@@ -109,9 +111,9 @@
         var sidebar = document.getElementById("sidebar");
 
         toggleIcon.addEventListener("click", function() {
-            if (sidebar.style.left === "0px" || sidebar.style.left === "") {
-                sidebar.style.left = "-100%";
-                toggleIcon.src = "https://s3-alpha-sig.figma.com/img/1e02/5487/7c1563c850db396e16220d14e55e3241?Expires=1713744000&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=W-ygkk-v5EQsZSmShthAxNJN7TbjXCirHkVBggq6NY4xRERgChdoWQTSimFTtGd5tmUoJVXSAJYoPdJA-p80zmnyYIMdl6YUpNyoKvCygAsaY~YGGTfu5F4Ed2KUkFcm0JHKnrdSlesNG8RoaWvi~hNKPcyx6dIweHzLxyBSzVwbHrx5bAryGybWSBoNYr7bseOhbZKm1NzCV8MZrpNKMigtSZrhqy-ye6rNCcUnkjcJ7vj0n3S0NREBuOIFyPnCMynaL-e0ru45h6lOQD-8kjQ-5-gNrR0F4TrZLpD2gH1WSvxPt79K235RoXpnB~75YZctVF5CrqT71V8hyH9IaQ__";
+            // removed the "" condition, changed to what index.html had
+            if (sidebar.style.left === "0px") {
+                toggleSidebar();
             }
         });
     }
@@ -119,7 +121,8 @@
     function toggleSidebar() {
         var sidebar = document.getElementById("sidebar");
         var body = document.body;
-        if (sidebar.style.left === "0px" || sidebar.style.left === "") {
+        // removed the "" condition, as it always ignored the first click
+        if (sidebar.style.left === "0px") {
             sidebar.style.left = "-100%";
             body.classList.remove("sidebar-open");
         } else {
@@ -127,7 +130,8 @@
             body.classList.add("sidebar-open");
         }
         var toggleIcon = document.getElementById("toggleIcon");
-        toggleIcon.src = (sidebar.style.left === "0px" || sidebar.style.left === "") ? "images/closebutton.png" : "images/bearlogo.jpg";
+        // removed the "" condition
+        toggleIcon.src = (sidebar.style.left === "0px") ? "images/closebutton.png" : "images/bearlogo.jpg";
     }
 
     const catalogueProducts = products;

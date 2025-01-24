@@ -11,7 +11,7 @@ body {
     -webkit-text-fill-color: black;
     margin: 0;
     padding: 0;
-    background-color: #f4f4f4;
+    background-color: #ffffff; /* changed from f4f4f4 */
     position: relative;
     overflow: overlay;
 }
@@ -31,7 +31,7 @@ body {
 }
 
 .aboutText {
-    margin: 50px;
+    padding: 50px; /* changed from margin to padding because it messed with the html color change */
 }
 
 .largeText {
@@ -56,15 +56,18 @@ body {
 }
 
 header {
-    position: relative;
+    position: sticky;
     background-color: #fff;
     color: #fff;
     padding: 1em;
     display: flex;
-    max-height:50px;
+    max-height:100px;
     align-items: center;
     justify-content: space-between;
     vertical-align: center;
+    top:0px;
+    border-bottom: solid 1px black;
+    z-index: 1;
 }
 
 .logo-text {
@@ -85,6 +88,7 @@ header {
 button {
     background-color: transparent;
     border: none;
+    padding: 20px;
 }
 
 h1 {
@@ -109,9 +113,9 @@ button img {
 
 .sidebar {
     position: absolute;
-    top: 115px;
+    top: 90px;
     left: -100%;
-    height: calc(100% - 45px);
+    height: 95vh;
     width: 100%;
     background-color: #fff;
     color: #fff;
@@ -272,7 +276,8 @@ button img {
     width: 120px;
     height: 120px;
     object-fit: cover;
-    border-radius: 10px;
+    /*border-radius: 10px;
+    /*removed so it doesn't cut the corners*/
 }
 
 .product p {
@@ -285,6 +290,10 @@ footer {
     color: #fff;
     padding: 10px;
     text-align: center;
+    /* added to hopefully make the footer stick to the bottom*/
+    /*position: absolute;
+    width: 100%;
+    apparently the problem fixed itself. was probably the sidebar's fault*/
 }
 
 .footer-info {
@@ -327,10 +336,10 @@ footer {
 
 .product-details-container {
     position: fixed;
-    top: 0;
+    top: 88px;
     right: -100%;
     width: 50%;
-    height: 100%;
+    height: calc(100% - 88px);
     background-color: white;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     transition: right 0.3s ease-in-out;
@@ -382,10 +391,10 @@ body.sidebar-open {
     padding: 10px;
     font-size: 20px;
     font-weight: bold;
-    background-color: #f4f4f4;
+    background-color: #ffffff; /* changed from f4f4f4 */
     font-family: "Oswald", sans-serif;
     font-size: xx-large;
-    text-align: center;
+    text-align: right; /* changed to hopefully? align the text to the center of the screen*/
 }
 
 .controls-container {
@@ -406,3 +415,9 @@ body.sidebar-open {
 .sort-options {
     margin: 10px;
 }
+/* added so the color goes past the container when scrolling on phones
+html {
+    background-color: #C4A98E;
+}
+doesn't really work because you can scroll to the right
+*/
