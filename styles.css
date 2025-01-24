@@ -415,9 +415,7 @@ body.sidebar-open {
 .sort-options {
     margin: 10px;
 }
-/* added so the color goes past the container when scrolling on phones
+/* added so the color goes past the container when scrolling on phones */
 html {
     background-color: #C4A98E;
 }
-doesn't really work because you can scroll to the right
-*/
