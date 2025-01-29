@@ -8,6 +8,7 @@ Tasks to be done:
 - readd gmail, find the talishop email
 - scroll function on the menu page (?)
 - easier modification
+- extra: fix the sort system so it's not stupid
 
 Tasks for later:
 - change bear logo
