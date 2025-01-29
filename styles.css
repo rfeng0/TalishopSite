@@ -336,7 +336,7 @@ footer {
 
 .product-details-container {
     position: fixed;
-    top: 88px;
+    top: 83px;
     right: -100%;
     width: 50%;
     height: calc(100% - 88px);
