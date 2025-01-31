@@ -280,7 +280,7 @@
 
     function toggleControls() {
         var controlsContainer = document.getElementById('controlsContainer');
-        if (controlsContainer.style.display === 'none') {
+        if (controlsContainer.style.display === 'none' || controlsContainer.style.display === "") {
             controlsContainer.style.display = 'block';
         } else {
             controlsContainer.style.display = 'none';
