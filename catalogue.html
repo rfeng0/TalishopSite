@@ -190,7 +190,7 @@
         });
     }
 
-    function filterProducts(category) {
+    function filterProducts(category) { // calls renderProducts with filtered products based on the parameter
         if (category === 'All') {
             renderCatalogue(catalogueProducts);
         } else {
@@ -201,7 +201,7 @@
         }
     }
 
-    function filterProductsDropdown() {
+    function filterProductsDropdown() { // checks dropdown, sorts, then rerenders the catalogue with filtered products
         var categoryDropdown = document.getElementById("categoryDropdown");
         var selectedCategory = categoryDropdown.value;
 
@@ -216,7 +216,7 @@
         }
     }
 
-    function showProductDetails(product) {
+    function showProductDetails(product) { // modifies and shows the product details
         document.getElementById("productName").innerHTML = "<b>Product:</b> " + product[2];
         document.getElementById("productDescription").innerHTML = "<b>Description:</b> " + product[7];
         document.getElementById("productPrice").innerHTML = "<b>Price:</b> $" + product[4];
@@ -228,11 +228,11 @@
         document.querySelector(".product-details-container").style.right = "0";
     }
 
-    function hideProductDetails() {
+    function hideProductDetails() { // hides details
         document.querySelector(".product-details-container").style.right = "-100%";
     }
 
-    function searchProducts() {
+    function searchProducts() { // filters products based on search and renders
         var searchInput = document.getElementById("searchInput").value.toLowerCase();
         var filteredProducts = catalogueProducts.filter(function (product) {
             return product[2].toLowerCase().includes(searchInput) || product[3].toLowerCase().includes(searchInput);
@@ -240,7 +240,7 @@
         renderCatalogue(filteredProducts);
     }
 
-    function applyFilters() {
+    function applyFilters() { // checks the allergy boxes, filters, then renders the products
         var peanutFreeChecked = document.getElementById("peanutFreeCheckbox").checked;
         var almondFreeChecked = document.getElementById("almondFreeCheckbox").checked;
 
@@ -260,7 +260,7 @@
 
     const defaultOrder = catalogueProducts.slice();
 
-    function sortCatalogue() {
+    function sortCatalogue() { // sorts, then renders the catalogue
         var sortOption = document.getElementById("sortDropdown").value;
 
         if (sortOption === "default") {
